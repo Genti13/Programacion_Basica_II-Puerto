@@ -19,11 +19,17 @@ public class Fondero {
 		return this.amarras - this.yates.size();
 	}
 
-	public void amarrarYate(Yate yate) {
+	public void amarrarYate(Yate yate) throws AmarraException {
+		if (this.yates.contains(yate)) {
+			throw new AmarraException("El yate ya esta amarrado");
+		}
 		yates.add(yate);
 	}
 
-	public void desamarrarYate(Yate yate) {
+	public void desamarrarYate(Yate yate) throws AmarraException {
+		if (!this.yates.contains(yate)) {
+			throw new AmarraException("No Existe el Yate");
+		}
 		yates.remove(yate);
 	}
 
